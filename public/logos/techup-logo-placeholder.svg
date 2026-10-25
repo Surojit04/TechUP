@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <defs>
+    <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F57C00" />
+      <stop offset="100%" stop-color="#E04A00" />
+    </linearGradient>
+  </defs>
+
+  <!-- Simple Circle + Chevron Logo Mark (Placeholder) -->
+  <g transform="translate(6, 6)">
+    <!-- Circle Outer Border -->
+    <circle cx="26" cy="26" r="25" fill="#17171D" stroke="#262630" stroke-width="1.5" />
+    <!-- Inner Accent Circle -->
+    <circle cx="26" cy="26" r="19" fill="url(#circleGrad)" />
+    <!-- Stylized Chevrons (Upward thrust) -->
+    <path d="M18 31 L26 23 L34 31" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M21 24 L26 19 L31 24" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9" />
+  </g>
+
+  <!-- Wordmark -->
+  <text x="68" y="34" font-family="'Bebas Neue', Impact, 'Arial Black', sans-serif" font-size="28" font-weight="900" letter-spacing="1.5" fill="#FFFFFF">
+    TECH<tspan fill="#E04A00">UP</tspan>
+  </text>
+  <text x="69" y="47" font-family="'Inter', sans-serif" font-size="8.5" font-weight="700" letter-spacing="3" fill="#6B6B76">
+    DIGITAL
+  </text>
+
+  <!-- Clear Placeholder Label per Spec -->
+  <g transform="translate(185, 14)">
+    <rect width="86" height="18" rx="4" fill="#E04A00" fill-opacity="0.15" stroke="#E04A00" stroke-width="1" stroke-dasharray="2 2" />
+    <text x="43" y="12" font-family="'Inter', monospace, sans-serif" font-size="7.5" font-weight="700" fill="#E04A00" text-anchor="middle" letter-spacing="0.5">
+      [PLACEHOLDER]
+    </text>
+  </g>
+</svg>
