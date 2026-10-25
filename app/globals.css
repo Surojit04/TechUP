@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-orange: #E04A00;
+  --color-brand-amber: #F57C00;
+  --color-ink: #0B0B0F;
+  --color-ink-soft: #17171D;
+  --color-paper: #FFFFFF;
+  --color-mist: #F5F5F7;
+  --color-muted: #6B6B76;
+}
+
+html {
+  color-scheme: dark light;
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility: 2px orange focus ring on interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-brand-orange) !important;
+  outline-offset: 2px !important;
+}
+
+/* Custom text selection */
+::selection {
+  background-color: var(--color-brand-orange);
+  color: #ffffff;
+}
+
+/* Angular chevron clip-path divider from logo (spec section 4) */
+.chevron-divider-bottom {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 24px), 50% 100%, 0 calc(100% - 24px));
+}
+
+.chevron-divider-top {
+  clip-path: polygon(0 24px, 50% 0, 100% 24px, 100% 100%, 0 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #262630;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-orange);
+}
+
+/* Card-specific sleek scrollbar */
+.custom-card-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(224, 74, 0, 0.4) transparent;
+}
+.custom-card-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-card-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-card-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(224, 74, 0, 0.4);
+  border-radius: 9999px;
+}
+.custom-card-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-orange);
+}
+
+/* Utility to ensure minimum touch target 44px for accessibility */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Infinite marquee keyframes */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Left-to-right infinite marquee keyframes */
+@keyframes marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 34s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+/* 6-second gentle pulse for WhatsApp button (spec section 5) */
+@keyframes wa-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  15% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-wa-pulse {
+  animation: wa-pulse 6s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+}
+
+/* 3D Transform Utilities for Click-to-Flip Cards */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Ambient keyframe animations */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-1.5deg);
+  }
+}
+
+@keyframes orbit-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbit-ccw {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.25;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes grid-drift {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-orbit-cw {
+  animation: orbit-cw 20s linear infinite;
+}
+
+.animate-orbit-ccw {
+  animation: orbit-ccw 26s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.animate-grid-drift {
+  animation: grid-drift 24s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee,
+  .animate-marquee-ltr,
+  .animate-float-slow,
+  .animate-float-reverse,
+  .animate-orbit-cw,
+  .animate-orbit-ccw,
+  .animate-pulse-glow,
+  .animate-grid-drift {
+    animation: none !important;
+  }
+}
+
